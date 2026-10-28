@@ -1,0 +1,84 @@
+/* Shared theme surfaces. The original style remains the unmodified baseline. */
+:root{--surface:#fff;--surface-raised:#f2f5ed;--surface-soft:#f7f9f4;--on-accent:#fff;--selection:#173a43;--chart-line:#347a60;--chart-baseline:#a2af98;--chart-band:#edf2e7;--chart-grid:#edf0e7;--chart-high:#c93636;--chart-medium:#b48600;--calendar-band:#c9d2db;--calendar-stroke:#778797;--support:#586b7b;--panel-radius:10px;--panel-shadow:none;--decal-opacity:.1;--ambient:none}
+.appearance-bar{display:flex;align-items:center;flex-wrap:wrap;gap:13px 20px;padding:12px 37px;border-bottom:1px solid var(--border);background:var(--surface);position:relative;z-index:2;font-size:11px}.appearance-bar>label{display:flex;align-items:center;gap:9px}.appearance-bar select{border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-size:11px;background:var(--surface-raised);color:var(--ink)}.appearance-bar input{accent-color:var(--green)}.appearance-caption{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-right:4px}.appearance-compare{margin-left:auto;color:var(--green);font-weight:600;border:1px solid var(--border);padding:8px 12px;border-radius:6px}.appearance-status{font-size:10px;color:var(--muted);width:100%;margin:0}.appearance-status:empty{display:none}.appearance-bar option{background:var(--surface);color:var(--ink)}
+:where(html[data-preview="true"]) .appearance-bar{display:none}
+:where(html[data-theme]:not([data-theme="original"])) body{background:var(--bg);color:var(--ink)}
+:where(html[data-theme]:not([data-theme="original"])) .app{position:relative;isolation:isolate}
+:where(html[data-theme]:not([data-theme="original"])) .app>header,:where(html[data-theme]:not([data-theme="original"])) main{position:relative;z-index:1}
+:where(html[data-theme]:not([data-theme="original"])) .app::before{content:"";position:fixed;inset:0 0 0 var(--sidebar);pointer-events:none;z-index:0;background:var(--ambient)}
+:where(html[data-theme]:not([data-theme="original"])) .app::after{content:"";position:fixed;top:100px;right:35px;width:430px;height:280px;pointer-events:none;z-index:0;background-repeat:no-repeat;background-size:contain;background-position:top right;opacity:var(--decal-opacity)}
+html[data-decals="off"] .app::before,html[data-decals="off"] .app::after{display:none}
+:where(html[data-theme]:not([data-theme="original"])) .sidebar,:where(html[data-theme]:not([data-theme="original"])) header{background:var(--surface)}
+:where(html[data-theme]:not([data-theme="original"])) .card,:where(html[data-theme]:not([data-theme="original"])) .kpi,:where(html[data-theme]:not([data-theme="original"])) .building-card,:where(html[data-theme]:not([data-theme="original"])) .context-card{background:var(--surface);border-radius:var(--panel-radius);box-shadow:var(--panel-shadow)}
+:where(html[data-theme]:not([data-theme="original"])) .light,:where(html[data-theme]:not([data-theme="original"])) .select-wrap,:where(html[data-theme]:not([data-theme="original"])) .related-alert,:where(html[data-theme]:not([data-theme="original"])) .alert-row,:where(html[data-theme]:not([data-theme="original"])) .alert-table,:where(html[data-theme]:not([data-theme="original"])) dialog{background:var(--surface)}
+:where(html[data-theme]:not([data-theme="original"])) .dark{background:var(--green);color:var(--on-accent);border-color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) .brand-icon{color:var(--on-accent);box-shadow:0 0 0 1px var(--border)}
+:where(html[data-theme]:not([data-theme="original"])) .brand-dot{color:var(--secondary)}
+:where(html[data-theme]:not([data-theme="original"])) nav button,:where(html[data-theme]:not([data-theme="original"])) .breadcrumb,:where(html[data-theme]:not([data-theme="original"])) .breadcrumb strong,:where(html[data-theme]:not([data-theme="original"])) .icon-button{color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) nav button.active{background:var(--green-light);color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) nav b,:where(html[data-theme]:not([data-theme="original"])) .sidebar-note{background:var(--surface-raised);color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) .avatar,:where(html[data-theme]:not([data-theme="original"])) .building-icon,:where(html[data-theme]:not([data-theme="original"])) .role-toggle{background:var(--surface-raised);border-color:var(--border);color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) .role-toggle button{color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) .role-toggle button.active{background:var(--surface);color:var(--ink)}
+:where(html[data-theme]:not([data-theme="original"])) .synthetic{background:var(--surface-raised);color:var(--green);border-color:var(--border)}
+:where(html[data-theme]:not([data-theme="original"])) .synthetic i,:where(html[data-theme]:not([data-theme="original"])) .status-dot{background:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) :is(.nav-label,.breadcrumb span,.select-wrap>span,.kpi .label,.kpi .label>span,.kpi .value small,.kpi .foot,.overline,.tag,.legend,.chart-footer,.subtle,.building-top small,.building-bottom b small,.building-bottom span,.alert-table small,.alert-row small,.alert-row .row-meta,.evidence-grid small,.controls label,.stats-strip span,footer,.context-label,.context-card-foot>span,.evidence-timeline time,.related-alert small){color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) .kpi .foot b,:where(html[data-theme]:not([data-theme="original"])) .technical td:nth-child(2){color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) .alert-table td,:where(html[data-theme]:not([data-theme="original"])) .alert-row,:where(html[data-theme]:not([data-theme="original"])) .chart-footer{border-color:var(--border)}
+:where(html[data-theme]:not([data-theme="original"])) .alert-table th{background:var(--surface-raised);color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) .alert-row:hover,:where(html[data-theme]:not([data-theme="original"])) .alert-table tbody tr:hover{background:var(--surface-raised)}
+:where(html[data-theme]:not([data-theme="original"])) .table-hypothesis{color:var(--muted)!important}
+:where(html[data-theme]:not([data-theme="original"])) .severity-explanation{color:var(--muted)!important}
+:where(html[data-theme]:not([data-theme="original"])) .anomaly-summary{background:var(--surface)}
+:where(html[data-theme]:not([data-theme="original"])) .anomaly-summary.high,:where(html[data-theme]:not([data-theme="original"])) .attention[data-priority="High"],:where(html[data-theme]:not([data-theme="original"])) .alert-row.severity-high.selected,:where(html[data-theme]:not([data-theme="original"])) .alert-table tr.severity-high:hover{background:var(--high-bg)}
+:where(html[data-theme]:not([data-theme="original"])) .anomaly-summary.medium,:where(html[data-theme]:not([data-theme="original"])) .attention[data-priority="Medium"],:where(html[data-theme]:not([data-theme="original"])) .alert-row.severity-medium.selected,:where(html[data-theme]:not([data-theme="original"])) .alert-table tr.severity-medium:hover{background:var(--medium-bg)}
+:where(html[data-theme]:not([data-theme="original"])) .kpi.alarming{background:var(--high-bg)}
+:where(html[data-theme]:not([data-theme="original"])) .kpi.alarming .label{color:var(--high)}
+:where(html[data-theme]:not([data-theme="original"])) .attention p,:where(html[data-theme]:not([data-theme="original"])) .attention .overline,:where(html[data-theme]:not([data-theme="original"])) .attention .tiny,:where(html[data-theme]:not([data-theme="original"])) .spotlight-meter,:where(html[data-theme]:not([data-theme="original"])) .alert-row .alert-guess{color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) .attention .button{background:var(--green);color:var(--on-accent)}
+:where(html[data-theme]:not([data-theme="original"])) :is(.kpi.emphasis,.evidence-grid>div,.callout,.scenario-result,.formula,.context-timing,.pattern-explainer,.context-lab-note,.layer-comparison,.feedback-panel,.feedback-summary,.chart-event-button,.example-tag,.import-counts>span,#import-preview pre){background:var(--surface-raised);border-color:var(--border)}
+:where(html[data-theme]:not([data-theme="original"])) .kpi.emphasis .value,:where(html[data-theme]:not([data-theme="original"])) .formula{color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) .callout,:where(html[data-theme]:not([data-theme="original"])) .pattern-explainer p,:where(html[data-theme]:not([data-theme="original"])) .pattern-explainer details{color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) .lab-intro{background:var(--green-light);border-color:var(--border)}
+:where(html[data-theme]:not([data-theme="original"])) .lab-intro>span{color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) .truth-note{background:var(--medium-bg);color:var(--medium)}
+:where(html[data-theme]:not([data-theme="original"])) .timeline-marker,:where(html[data-theme]:not([data-theme="original"])) .badge.status,:where(html[data-theme]:not([data-theme="original"])) .user-outcome{background:var(--green-light);color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) .evidence-timeline li:not(:last-child)::before{border-color:var(--border)}
+:where(html[data-theme]:not([data-theme="original"])) .calendar-context{background:var(--surface-soft);border-color:var(--calendar-stroke)}
+:where(html[data-theme]:not([data-theme="original"])) .calendar-context article{border-color:var(--border)}
+:where(html[data-theme]:not([data-theme="original"])) .calendar-context article span,:where(html[data-theme]:not([data-theme="original"])) .calendar-context article time,:where(html[data-theme]:not([data-theme="original"])) .chart-context-legend,:where(html[data-theme]:not([data-theme="original"])) .example-tag{color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) #calendar-form label,:where(html[data-theme]:not([data-theme="original"])) #feedback-form label{color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) :is(#calendar-form input,#calendar-form select,#calendar-form textarea,#feedback-form select,#feedback-form textarea,.controls select,.inbox-filters select){background:var(--surface-soft);color:var(--ink);border-color:var(--border)}
+:where(html[data-theme]:not([data-theme="original"])) input::placeholder,:where(html[data-theme]:not([data-theme="original"])) textarea::placeholder{color:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) .chart-view-controls button{background:var(--surface-raised);color:var(--ink)}
+:where(html[data-theme]:not([data-theme="original"])) .chart-view-controls button[aria-pressed=true]{background:var(--green);color:var(--on-accent)}
+:where(html[data-theme]:not([data-theme="original"])) .chart-event-button.selected{background:var(--green-light);border-color:var(--selection)}
+:where(html[data-theme]:not([data-theme="original"])) .form-error{color:var(--high)}
+:where(html[data-theme]:not([data-theme="original"])) .error{background:var(--high-bg);border-color:var(--high-border);color:var(--high)}
+:where(html[data-theme]:not([data-theme="original"])) .toast,:where(html[data-theme]:not([data-theme="original"])) .chart-tip{background:var(--tooltip);border-color:var(--border);color:var(--ink)}
+:where(html[data-theme]:not([data-theme="original"])) .chart-tip p{color:var(--ink)}
+:where(html[data-theme]:not([data-theme="original"])) dialog::backdrop{background:#02050bb8}
+:where(html[data-theme]:not([data-theme="original"])) .line-swatch{border-color:var(--chart-line)}
+:where(html[data-theme]:not([data-theme="original"])) .line-swatch.dashed{border-color:var(--chart-baseline)}
+:where(html[data-theme]:not([data-theme="original"])) .area-swatch{background:var(--chart-band);border-color:var(--chart-grid)}
+:where(html[data-theme]:not([data-theme="original"])) .severity-swatch.high{background:var(--chart-high)}
+:where(html[data-theme]:not([data-theme="original"])) .severity-swatch.medium,:where(html[data-theme]:not([data-theme="original"])) .signal-dot.medium{background:var(--chart-medium)}
+:where(html[data-theme]:not([data-theme="original"])) .svg-label{fill:var(--muted)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [stroke="#347a60"],:where(html[data-theme]:not([data-theme="original"])) .spark polyline{stroke:var(--chart-line)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [stroke="#a2af98"]{stroke:var(--chart-baseline)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [stroke="#edf0e7"]{stroke:var(--chart-grid)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [fill="#edf2e7"]{fill:var(--chart-band)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [stroke="#c93636"]{stroke:var(--chart-high)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [fill="#c93636"]{fill:var(--chart-high)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [stroke="#b48600"]{stroke:var(--chart-medium)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [fill="#b48600"],:where(html[data-theme]:not([data-theme="original"])) .chart [fill="#e7b400"]{fill:var(--chart-medium)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [fill="#c9d2db"]{fill:var(--calendar-band)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [stroke="#778797"]{stroke:var(--calendar-stroke)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [stroke="#586b7b"]{stroke:var(--support)}
+:where(html[data-theme]:not([data-theme="original"])) .chart [stroke="#173a43"]{stroke:var(--selection)}
+@media(max-width:820px){.appearance-bar{padding:12px 23px;gap:12px}.appearance-caption{display:none}.appearance-compare{margin-left:0;font-size:10px}.appearance-bar select{max-width:190px}.app::after{max-width:80vw}}
+:where(html[data-theme]:not([data-theme="original"])) .kpi.alarming{background:var(--high-bg)}
+:where(html[data-theme]:not([data-theme="original"])) .kpi.alarming .value,:where(html[data-theme]:not([data-theme="original"])) .kpi.alarming .foot b{color:var(--high)}
+:where(html[data-theme]:not([data-theme="original"])) .building-card:hover{border-color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) :is(button,a,input,select,textarea):focus-visible{outline-color:var(--green)}
+:where(html[data-theme]:not([data-theme="original"])) .badge:not(.high):not(.medium):not(.status){background:var(--surface-raised);color:var(--ink)}

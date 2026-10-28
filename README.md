@@ -37,3 +37,22 @@ python3 verify.py
 See [the detailed methodology](sites/meterwise/README.md) and [verification notes](sites/meterwise/QA.md). Downloadable readings, injection labels, generator, and context rules are inside `sites/meterwise/dist/data/`.
 
 The source layout is preserved under `sites/meterwise`. Local research files and preview artifacts remain in this folder but are excluded from Git tracking. Prior local Git metadata and the destination's original placeholder README are preserved in `.migration/`; the repository's existing root Git history remains active.
+
+## Timeline, operating calendar, and assessments
+
+Click a highlighted anomaly on the overview timeline, or use **Choose an anomaly from this chart** for keyboard selection. Overlapping alerts open a chooser. Investigations default to two hours of padding and provide **Zoom to event**, **Show full day**, and **Show supporting history** controls. Supporting observations have dashed gray outlines; red/yellow shading continues to mark the actual flagged interval.
+
+Use **Operating calendar** to manage explicit dated intervals in Los Angeles time. Three entries are clearly marked synthetic examples. Neutral gray chart bars and an investigation's **What was scheduled?** section show overlapping calendar context without changing detector output or priority.
+
+Save an outcome, optional cause, and notes under **Investigation feedback**. Feedback remains separate from review status and model results. The inbox can filter outcomes and shows a user-assessment summary, not detector accuracy. Feedback keys include a SHA-256 fingerprint of the complete dataset and its alert ID.
+
+Records are saved only in the current browser and site origin. Localhost, GitHub Pages, and different browsers do not automatically share them. Use **Export / import records** to transfer JSON. Imports preview valid new, invalid, and conflicting records. Existing records are kept unless replacement is explicitly selected; invalid entries are skipped. Feedback from another dataset fingerprint remains archived rather than attaching to current alerts.
+
+Calendar entries are individual intervals, not recurring weekly schedules. Calendar form times skipped or repeated at daylight-saving transitions are rejected to avoid silently choosing the wrong instant. Timestamps in JSON require explicit offsets. Imports accept up to 2 MB and 10,000 records. Browser storage failures leave record editing read-only rather than discarding existing records.
+
+Run the additional workflow tests with:
+
+```sh
+cd sites/meterwise
+node --test test_workspace.cjs
+```

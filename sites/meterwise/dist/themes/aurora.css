@@ -1,0 +1,7 @@
+:root[data-theme="aurora"]{color-scheme:dark;--bg:#100e20;--surface:#1d1932;--surface-raised:#2b2446;--surface-soft:#231e3b;--ink:#f5efff;--muted:#c0b3d4;--green:#c6a8ff;--green-light:#382a50;--secondary:#73e2d1;--border:#4c3b65;--on-accent:#20122f;--selection:#f3deff;--chart-line:#73e2d1;--chart-baseline:#baabce;--chart-band:#302b49;--chart-grid:#4e4165;--chart-high:#ff7f86;--chart-medium:#f3d772;--high:#ffa0a5;--high-bg:#42222b;--high-border:#aa5f6a;--medium:#f8df92;--medium-bg:#393022;--medium-border:#9c8046;--calendar-band:#554764;--calendar-stroke:#b9a9cb;--support:#d3c2e3;--tooltip:#3a2f51;--panel-radius:17px;--panel-shadow:0 14px 35px #06031044;--ambient:radial-gradient(ellipse at 92% 2%,#5d307977,transparent 42%),radial-gradient(ellipse at 90% 65%,#12525344,transparent 40%);--decal-opacity:.28}
+html[data-theme="aurora"] .app::after{background-image:url('decals/aurora-orbits.svg')}
+html[data-theme="aurora"] .brand-icon{border-radius:50%}
+html[data-theme="aurora"] .card,html[data-theme="aurora"] .kpi{background:linear-gradient(135deg,#241d3b,var(--surface) 75%)}
+html[data-theme="aurora"] .kpi.alarming{background:var(--high-bg)}
+html[data-theme="aurora"] .attention[data-priority="High"]{background:var(--high-bg)}
+html[data-theme="aurora"] .attention[data-priority="Medium"]{background:var(--medium-bg)}

@@ -119,3 +119,15 @@ The PDFs are reference material. Their text, links, and instructions do not auth
 Obtain an authorized real schema and a de-identified meter sample, then replace assumptions with measured cadence, meter hierarchy, units/sign conventions, nominal voltages, building capacities, PV/battery ratings, occupancy calendars, missingness, and channel correlations. Validate load distributions, ramps, daily/weekly autocorrelation, weather sensitivity, PV/load coupling, and fault durations on a chronological holdout. Add real submeter/BMS logs before presenting equipment causes as confirmed.
 
 No real measurements, utility accounts, credentials, or private documents are embedded in the website. Only the synthetic dataset, source, and paraphrased research notes are distributed. The prototype has no live integration, authentication implementation, notification delivery, work-order system, or cloud persistence for review states.
+
+## Connected investigation workflow
+
+The overview chart supports mouse selection and a keyboard-accessible anomaly list. Overlaps require an explicit choice. The detail chart defaults to the complete alert with two hours of padding, and can show full touched days or supporting historical episodes without changing detection timestamps.
+
+Calendar entries and investigation feedback are held in the versioned `meterwise-workspace-v1` localStorage record. Calendar overlays are neutral gray and provide separate operating context. Feedback has four outcomes, optional cause/notes, created/updated timestamps, and keys combining a full dataset SHA-256 fingerprint with the alert ID. Saving feedback does not change review status, anomaly priority, or benchmark metrics. Unsaved feedback drafts survive in-page re-rendering but are not saved across reloads until submitted.
+
+**Export / import records** transfers JSON between browsers/origins. The importer validates record fields, scope, timestamps, enums, duplicate keys, and dataset/alert associations. Preview separates valid new records, invalid records, and conflicts; replacement is opt-in. Different-fingerprint feedback remains archived. Imported text is rendered as text. The file size limit is 2 MB and the record count limit is 10,000.
+
+Calendar input is interpreted in `America/Los_Angeles`, independent of the browser's own timezone. Entries are dated, start-inclusive/end-exclusive intervals. The UI rejects nonexistent or ambiguous daylight-saving wall times; offset-bearing JSON can represent explicit instants. Three synthetic operating-calendar examples are seeded only when this browser/site has no prior workspace record. Deleting or editing them persists across refresh.
+
+For local verification, run `node --test test_workspace.cjs` from this folder. These twelve tests complement the eight existing detector tests. The GitHub Pages workflow runs both suites and preserves the static, dependency-free deployment.
