@@ -1,0 +1,11 @@
+# Local runtime and Python caches
+**/.local/
+**/__pycache__/
+*.py[cod]
+
+# Preserved migration history and local research/preview artifacts
+.migration/
+/research/
+/tmp/
+/*.tar.gz
+/*-preview.jpg

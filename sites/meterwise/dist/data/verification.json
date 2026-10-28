@@ -1,0 +1,32 @@
+{
+  "test_events": 15,
+  "detected_events": 15,
+  "alert_episodes": 26,
+  "matching_alert_episodes": 23,
+  "false_alerts_per_meter_day": 0.03571428571428571,
+  "delays_minutes": {
+    "E04": 0,
+    "E05": 0,
+    "E06": 0,
+    "E07": 0,
+    "E08": 90,
+    "E09": 0,
+    "E10": 180,
+    "E11": 0,
+    "E12": 0,
+    "E13": 45,
+    "E14": 45,
+    "E15": 45,
+    "E16": 510,
+    "E17": 0,
+    "E18": 0
+  },
+  "context_only_events": [
+    "E13",
+    "E14",
+    "E15",
+    "E16"
+  ],
+  "point_alert_episodes": 20,
+  "context_alert_episodes": 6
+}

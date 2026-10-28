@@ -1,0 +1,31 @@
+{
+  "seed": 20261023,
+  "rows": 32256,
+  "meters": 6,
+  "interval_minutes": 15,
+  "timezone": "America/Los_Angeles; fixed UTC-07:00 during this date range",
+  "start": "2026-08-24T00:00:00-07:00",
+  "end": "2026-10-19T00:00:00-07:00",
+  "end_exclusive": true,
+  "splits": {
+    "train_days": 28,
+    "validation_days": 14,
+    "test_days": 14
+  },
+  "injected_events": 18,
+  "detected_alerts": 44,
+  "context_alerts": 12,
+  "units": {
+    "p": "kW net import (negative export)",
+    "q": "kvar, positive inductive",
+    "v": "V line-to-line",
+    "amps": "A balanced three-phase equivalent",
+    "pf": "magnitude |P|/sqrt(P\u00b2+Q\u00b2)",
+    "temp": "deg C",
+    "battery": "kW, positive charge",
+    "soc": "kWh stored energy"
+  },
+  "provenance": "Entirely synthetic. Inspired by DERConnect asset types, not fitted to real DERConnect data.",
+  "detector": "Training-only weekday/weekend slot medians plus within-slot temperature coefficient. Robust scale with 7%/3 kW floor. Validation 99.5th percentile threshold, minimum 3. Missing, 8 repeated intervals, and PF below 0.75 with Q above 1.6x the training slot median are separate illustrative rules.",
+  "context_rules": "Causal four-reading overnight episodes repeated near the same time within 7 days; and rolling 12-reading daytime windows with mean signed score above a validation-calibrated 99.5th percentile (minimum 1.5) for 3 consecutive checks, at least 10 scores >=0.8, and no point flags. Sequence release uses 80% of the trigger threshold. Context detections start at the evidence trigger, never at the earlier evidence window. Simultaneous missing-data alerts are linked across meters using only detections already available."
+}

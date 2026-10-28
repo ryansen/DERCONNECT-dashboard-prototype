@@ -1,0 +1,19 @@
+id,building,start,end,type,title,magnitude,action,priority,split
+E01,ADM,2976,3000,after_hours,Overnight load persists,38,Check the BMS schedule and verify whether an overnight activity was planned.,Medium,validation
+E02,LIB,3412,3420,dropout,Meter stops reporting,0,Check gateway connectivity and missing interval backfill.,Medium,validation
+E03,LAB,3688,3689,spike,Isolated demand spike,155,Compare the interval with equipment start logs and neighboring meters.,Medium,validation
+E04,ADM,4224,4248,after_hours,HVAC running after hours,46,"Review the HVAC schedule, overrides, and actual occupancy. Cause requires confirmation.",High,test
+E05,LAB,4456,4457,spike,Sudden demand spike,180,Correlate with large equipment starts. Inspect finer-resolution data if available.,High,test
+E06,LIB,4556,4568,dropout,Telemetry gap,0,Check the meter gateway and communications before attributing this to a power outage.,Medium,test
+E07,STU,4656,4672,solar_loss,Expected solar output falls,58,"Compare inverter telemetry, cloud cover, and curtailment commands.",Medium,test
+E08,REC,4736,4764,flatline,Unchanging meter readings,0,Verify the meter timestamp and gateway cache; request a fresh reading.,Medium,test
+E09,EVH,4868,4880,charging,Unexpected charging peak,90,Review charger sessions and the managed charging schedule.,High,test
+E10,LAB,4896,5184,drift,Baseload gradually rises,75,Check persistent equipment loads and compare cooling demand with weather.,Medium,test
+E11,ADM,5088,5112,after_hours,Overnight HVAC load returns,48,Check recurring schedule overrides; confirm the change with the facility team.,High,test
+E12,LIB,5224,5240,low_pf,Reactive demand increases,0,Review reactive power and equipment state. Confirm with suitable power-quality measurements.,Medium,test
+E13,ADM,4608,4620,after_hours,"Small overnight increase, first recurrence",12,Compare the same overnight window across multiple days.,Medium,test
+E14,ADM,4704,4716,after_hours,Small overnight increase repeats,12,Inspect repeated overnight operation; each reading remains below the point limit.,Medium,test
+E15,ADM,4800,4812,after_hours,Third small overnight increase,12,Review recurring schedule overrides across nights.,Medium,test
+E16,ADM,5216,5256,persistent_load,Persistent modest daytime increase,12,Inspect a sustained sequence that individual point limits miss.,Medium,test
+E17,REC,4556,4568,dropout,Concurrent recreation meter gap,0,Compare other meters before treating this as an isolated device problem.,Medium,test
+E18,STU,4556,4568,dropout,Concurrent student center meter gap,0,Check for a shared collection or communications problem.,Medium,test
