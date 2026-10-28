@@ -9,3 +9,6 @@
 /tmp/
 /*.tar.gz
 /*-preview.jpg
+
+# GitHub Pages deployment artifact
+/_site/

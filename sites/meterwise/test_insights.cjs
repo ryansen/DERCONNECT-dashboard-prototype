@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const M=require('./dist/insights-data.js');
-const d=JSON.parse(fs.readFileSync(path.join(__dirname,'dist/data/simulation.json'),'utf8'));
+const M=require('../../insights-data.js');
+const d=JSON.parse(fs.readFileSync(path.join(__dirname,'../../data/simulation.json'),'utf8'));
 const s=Object.fromEntries(Object.entries(d.series).map(([b,rs])=>[b,rs.map(r=>Object.fromEntries(d.fields.map((k,i)=>[k,r[i]])))]));
 const key=a=>[a.building,a.kind,a.context_type||'',a.start,a.end].join(':');
 test('default recomputation reproduces every original episode and per-event delay',()=>{

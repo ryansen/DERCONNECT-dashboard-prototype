@@ -9,17 +9,16 @@ On Windows, double-click **Start-Meterwise.cmd**, then open **http://127.0.0.1:8
 On any platform with Python 3.10 or newer:
 
 ```sh
-python3 -m http.server 8765 --bind 127.0.0.1 --directory sites/meterwise/dist
+python3 -m http.server 8765 --bind 127.0.0.1 --directory .
 ```
 
 ## Deploy to GitHub Pages
 
-1. Publish this local repository to GitHub (for example, using GitHub Desktop's **Publish repository**), or add your GitHub repository as `origin` and push the `main` branch.
-2. In the GitHub repository, open **Settings → Pages** and choose **GitHub Actions** as the source.
-3. Open **Actions → Deploy dashboard to GitHub Pages → Run workflow**. Later pushes to `main` deploy automatically.
-4. Find the live URL in the completed deployment's **github-pages** environment.
+Live dashboard: **https://ryansen.github.io/DERCONNECT-dashboard-prototype/**
 
-The workflow checks JavaScript syntax, runs the detector regression tests, verifies the generated data, and publishes **sites/meterwise/dist**. The app uses relative asset/data URLs and hash-based navigation, so it works at a project URL such as `https://USERNAME.github.io/REPOSITORY/` without a base-path build step. It has no server-side dependencies or secrets to configure.
+The actual dashboard `index.html`, CSS, JavaScript, `themes/`, and `data/` live at the repository root. No redirect or nested entry URL is required. In **Settings → Pages**, the source is **GitHub Actions**. Pushes to `main` run the checked-in workflow, or use **Actions → Deploy dashboard to GitHub Pages → Run workflow**.
+
+The workflow checks JavaScript, runs the investigation and detector tests, verifies the synthetic data, and packages only the root website assets into `_site/`. Development tools, research files, local runtime files, and Git metadata are excluded from the published artifact. Relative URLs and hash navigation work under the repository path without a base-path build step. No server-side dependencies or secrets are required.
 
 GitHub's setup instructions: https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 
@@ -34,9 +33,9 @@ python3 -m unittest test_context.py
 python3 verify.py
 ```
 
-See [the detailed methodology](sites/meterwise/README.md) and [verification notes](sites/meterwise/QA.md). Downloadable readings, injection labels, generator, and context rules are inside `sites/meterwise/dist/data/`.
+See [the detailed methodology](sites/meterwise/README.md) and [verification notes](sites/meterwise/QA.md). Downloadable readings, injection labels, generator, and context rules are inside `data/`.
 
-The source layout is preserved under `sites/meterwise`. Local research files and preview artifacts remain in this folder but are excluded from Git tracking. Prior local Git metadata and the destination's original placeholder README are preserved in `.migration/`; the repository's existing root Git history remains active.
+The public website lives at the repository root. Generator, verification scripts, tests, and detailed documentation remain under `sites/meterwise`. Local research files and preview artifacts remain in this folder but are excluded from Git tracking. Prior local Git metadata and the destination's original placeholder README are preserved in `.migration/`; the repository's existing root Git history remains active.
 
 ## Timeline, operating calendar, and assessments
 

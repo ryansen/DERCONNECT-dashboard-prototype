@@ -1,7 +1,7 @@
 param([switch]$Stop)
 $ErrorActionPreference = 'Stop'
 $projectDir = Join-Path $PSScriptRoot 'sites\meterwise'
-$distDir = Join-Path $projectDir 'dist'
+$distDir = $PSScriptRoot
 $runtimeDir = Join-Path $projectDir '.local'
 $statePath = Join-Path $runtimeDir 'server.json'
 $url = 'http://127.0.0.1:8765'

@@ -9,7 +9,7 @@ from pathlib import Path
 from anomaly_context import context_alerts, explain_alerts
 
 ROOT = Path(__file__).parent
-OUT = ROOT / 'dist' / 'data'
+OUT = ROOT if ROOT.name == 'data' else ROOT.parents[1] / 'data'
 OUT.mkdir(parents=True, exist_ok=True)
 SEED = 20261023
 rng = random.Random(SEED)

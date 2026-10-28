@@ -1,7 +1,7 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const crypto=require('node:crypto').webcrypto;
-const M=require('./dist/workspace-data.js');
+const M=require('../../workspace-data.js');
 const rev='r2:'+'a'.repeat(64),other='r2:'+'b'.repeat(64),ctx={buildingIds:['ADM','LIB'],alertIds:['A001','A002'],datasetRevision:rev};
 const cal=(extra={})=>({id:'cal-one',scope:'ADM',type:'maintenance',title:'Overnight work',start:'2026-10-16T07:00:00.000Z',end:'2026-10-16T13:00:00.000Z',notes:'Check work log',...extra});
 const feedback=(extra={})=>({alertId:'A001',datasetRevision:rev,outcome:'expected_operation',cause:'hvac',notes:'Work was scheduled',createdAt:'2026-10-27T12:00:00.000Z',updatedAt:'2026-10-27T13:00:00.000Z',...extra});

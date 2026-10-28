@@ -13,10 +13,10 @@ Requires Python 3.10+; no third-party packages. From this folder:
 ```powershell
 python generate.py
 python verify.py
-python -m http.server 8765 --bind 127.0.0.1 --directory dist
+python -m http.server 8765 --bind 127.0.0.1 --directory ../..
 ```
 
-Open `http://127.0.0.1:8765`. Open through HTTP, because the browser fetches a JSON file. `dist/` is the complete static website. The generator is deterministic with seed **20261023**. Copies of this guide and the generator are supplied in `dist/data/` for download.
+Open `http://127.0.0.1:8765`. Open through HTTP, because the browser fetches a JSON file. The repository root is the complete static website; `index.html` is its entry point. The generator is deterministic with seed **20261023**. Copies of this guide and the generator are supplied in `../../data/` for download.
 
 ## Severity and contextual anomalies
 
@@ -134,7 +134,7 @@ For local verification, run `node --test test_workspace.cjs` from this folder. T
 
 ## Appearance themes
 
-Open `dist/themes.html` through the local server (http://127.0.0.1:8765/themes.html) to compare Original Sage, Midnight Circuit, Graphite, Aurora Lab, and Daybreak. Each has a separate file in `dist/themes/`; four new SVG decals are in `dist/themes/decals/`. The dashboard Theme selector switches styles immediately, and Decorative decals toggles the optional overlays. Preferences use the separate `meterwise-appearance-v1` browser-storage key and do not change calendar, feedback, detection, or data.
+Open `../../themes.html` through the local server (http://127.0.0.1:8765/themes.html) to compare Original Sage, Midnight Circuit, Graphite, Aurora Lab, and Daybreak. Each has a separate file in `../../themes/`; four new SVG decals are in `../../themes/decals/`. The dashboard Theme selector switches styles immediately, and Decorative decals toggles the optional overlays. Preferences use the separate `meterwise-appearance-v1` browser-storage key and do not change calendar, feedback, detection, or data.
 
 Gallery previews do not save a choice. Use this style saves it for this browser/origin; Opera and other browsers choose independently. Direct temporary previews use `index.html?theme=midnight` (or graphite, aurora, daybreak, original), with optional `&decals=off`. All paths are relative for GitHub Pages subdirectory hosting.
 

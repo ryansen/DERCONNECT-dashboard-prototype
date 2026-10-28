@@ -5,7 +5,7 @@ from datetime import datetime
 from pathlib import Path
 
 root=Path(__file__).parent
-d=json.loads((root/'dist/data/simulation.json').read_text())
+d=json.loads((root.parents[1]/'data/simulation.json').read_text())
 s={bid:[dict(zip(d['fields'],row)) for row in rows] for bid,rows in d['series'].items()}
 assert sum(map(len,s.values()))==32256
 assert len(d['events'])==18
@@ -54,6 +54,6 @@ assert {'E13','E14','E15','E16'}<=set(rescued), rescued
 metrics['context_only_events']=rescued
 metrics['point_alert_episodes']=len(point_alerts)
 metrics['context_alert_episodes']=len(alerts)-len(point_alerts)
-(root/'dist/data/verification.json').write_text(json.dumps(metrics,indent=2))
+(root.parents[1]/'data/verification.json').write_text(json.dumps(metrics,indent=2))
 print('PASS: chronology, row count, labels, battery limits/energy, electrical relationships, nulls, and alert segments')
 print(json.dumps(metrics,indent=2))
