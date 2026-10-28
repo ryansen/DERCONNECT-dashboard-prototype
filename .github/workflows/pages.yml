@@ -28,9 +28,10 @@ jobs:
           node --check appearance.js
           node --check insights-data.js
           node --check insights-ui.js
+          node --check pulse-chart.js
       - name: Test browser records and timeline rules
         working-directory: sites/meterwise
-        run: node --test test_workspace.cjs test_insights.cjs
+        run: node --test test_workspace.cjs test_insights.cjs test_pulse.cjs
       - name: Test contextual detection
         working-directory: sites/meterwise
         run: python3 -m unittest test_context.py

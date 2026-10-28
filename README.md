@@ -55,3 +55,7 @@ Run the additional workflow tests with:
 cd sites/meterwise
 node --test test_workspace.cjs
 ```
+
+## Campus Pulse chart display
+
+Campus Pulse defaults to observed demand and small red/yellow anomaly markers. Open **Chart display** to toggle expected demand, the threshold band, high/medium markers, calendar bars, and the smooth curve. Calendar bars also respect the existing global calendar toggle. Choices remain for the current page session across building/window changes and navigation; they do not filter alerts elsewhere or modify saved records. The smooth curve passes through each original 15-minute reading without averaging, preserves peaks without overshoot, and breaks at missing intervals. Hover values remain the original readings. Detail and Scenario Lab charts retain their existing rendering.

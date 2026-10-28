@@ -41,3 +41,11 @@
 - Browser experiment at 2x threshold, four eligible demand readings, and three nights produced 17 alert episodes, 12 detected injections, 3 misses, and 45-minute median delay, compared with 26/15/0/0 at default. Reset restores baseline results. Experimental detection never writes main alerts or published metrics.
 - Current calendar entries are additional retrospective interpretation, not an audited record of historical operator knowledge. Measured occupancy, real weather, equipment logs, and gateway topology remain unavailable.
 - Dataset verifier and JavaScript syntax checks pass. No push or deployment performed.
+
+## Campus Pulse display verification (2026-10-28)
+
+- Default overview shows the observed line and small priority markers, without expected-demand line, threshold shading, full-height alert shading, colored alert traces, or calendar bars. Existing detail and scenario charts retain their layers and geometry.
+- Five new pure geometry/layer tests cover exact reading coordinates, spike preservation, no curve overshoot, missing/nonfinite and discontinuous intervals, straight mode, and display filtering without source mutation.
+- Browser checks passed for all six toggles, synchronized legends, separate high/medium counts (10/16), hidden event chooser when both priorities are off, continued 26-episode dashboard count, curve/straight switching, and two disconnected path segments at the campus telemetry gap.
+- Display choices survived audience changes and navigation. Detail expected line/band remained visible. Keyboard activation and a 390px layout passed without horizontal page overflow; browser error log was empty. The existing Aurora appearance preference was preserved.
+- Smoothing is monotone cubic interpolation through the actual readings, not a moving average or a detector input. Hover values stay raw; no alert timestamps or data files changed.
