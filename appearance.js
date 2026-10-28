@@ -8,7 +8,7 @@
   {id:'daybreak',name:'Daybreak',note:'Fresh ivory panels with cobalt signals and copper details.',mood:'Bright · architectural · light',colors:['#f0f4fa','#285fc3','#b3643b'],decal:'A building-and-solar blueprint'}
  ];
  const KEY='meterwise-appearance-v1',params=new URLSearchParams(location.search),isPreview=params.get('preview')==='1';
- let saved={theme:'original',decals:true};
+ let saved={theme:'aurora',decals:true};
  try{const x=JSON.parse(localStorage.getItem(KEY)||'null');if(x&&THEMES.some(t=>t.id===x.theme))saved={theme:x.theme,decals:typeof x.decals==='boolean'?x.decals:true};}catch(e){}
  let active=THEMES.some(t=>t.id===params.get('theme'))?params.get('theme'):saved.theme;
  let decals=params.has('decals')?params.get('decals')!=='off':saved.decals;
